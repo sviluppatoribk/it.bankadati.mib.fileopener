@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+        id="it.bankadati.mib.fileopener"
+		version="0.0.1">
+
+  <name>Bankadati - MibFileOpener</name>
+  <description>Bankadati - Cordova plugin fileOpen</description>
+  <license>Zani Alessandro @ Bankadati 2015</license>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0" />
+  </engines>
+
+  <js-module src="www/mibFileOpener.js" name="mibFileOpener">
+    <clobbers target="mibFileOpener" />
+  </js-module>
+
+  <!-- wp8 -->
+  <platform name="wp8">
+    <config-file target="config.xml" parent="/*">
+      <feature name="MibFileOpener">
+        <param name="wp-package" value="MibFileOpener"/>
+      </feature>
+    </config-file>
+    <source-file src="src/wp/MibFileOpener.cs" />
+  </platform>
+
+  <!--Android-->
+  <platform name="android">
+    <config-file target="config.xml" parent="/*">
+      <feature name="MibFileOpener">
+        <param name="android-package" value="it.bankadati.mib.fileopener.MibFileOpener"/>
+      </feature>
+
+    </config-file>
+    <source-file src="src/android/MibFileOpener.java" target-dir="src/it/bankadati/mib/fileopener" />
+  </platform>
+
+</plugin>
