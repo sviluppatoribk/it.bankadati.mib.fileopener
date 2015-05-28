@@ -44,6 +44,7 @@ namespace WPCordovaClassLib.Cordova.Commands
              *  "The path cannot be in Uri format (for example, /image.jpg). Check the value of name." -> https://msdn.microsoft.com/en-us/library/windows/apps/windows.storage.storagefolder.getfileasync
             */
             var fileUrl = parametersArray[0];
+            if (fileUrl.StartsWith("//")) fileUrl = fileUrl.Substring(2);   //Rimuovo gli slash iniziali che "dà fastidio" alla GetFileAsync
             if (fileUrl.StartsWith("/")) fileUrl = fileUrl.Substring(1);    //Rimuovo lo slash iniziale che "dà fastidio" alla GetFileAsync
             fileUrl = fileUrl.Replace('/', '\\');
 
